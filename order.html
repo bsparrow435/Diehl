@@ -95,7 +95,7 @@
     var product = $("#produce_select").val();
     var quantity = $("#quantity_select").val();
     jQuery.ajax({
-      url: "order",
+      type: "POST",
       data: "product=" + product +"&quantity=" + quantity,
       success: function(data){
         var p = $("<p>")
