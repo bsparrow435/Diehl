@@ -87,7 +87,7 @@
       $("#produce_select").load('produce.txt');
     });
   });
-  $(function add_to_order(){
+  function add_to_order(){
     var product = jQuery("#produce_select").val();
     var quantity = jQuery("#quantity_select").val();
     jQuery.ajax({
@@ -98,7 +98,7 @@
       }
     });
 
-  });
+  };
 </script>
 
 </body>
