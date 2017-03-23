@@ -98,8 +98,8 @@
       url: "order",
       data: "product=" + product +"&quantity=" + quantity,
       success: function(data){
-        jQuery("#table").html(data).load();
-        $("#produce_select").load('produce.txt');
+        // jQuery("#table").html(data).load();
+        $("#table").load('produce.txt');
       }
     });
 
