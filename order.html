@@ -42,17 +42,16 @@
     </div>
   </form>
 <!-- UL that is generated based on user input from above -->
-<div class="container">
+<!--<div class="container">
   <list-group id ="currrent-order" >
     <ul class="list-unstyled">
-      <!--  decide between glyph or button...-->
-      <!-- <li class="list-group-item">item1 : qty-1  <span class="glyphicon glyphicon-remove" id="remove-item"></span></li> -->
+       <li class="list-group-item">item1 : qty-1  <span class="glyphicon glyphicon-remove" id="remove-item"></span></li> 
       <li class="list-group-item">item2 : qty-1  <button type="button" class="btn btn-sm btn-danger"id="remove-item">Remove Item</button></li>
       <li class="list-group-item">item3 : qty-1  <button type="button" class="btn btn-sm btn-danger"id="remove-item">Remove Item</button></li>
       <li class="list-group-item">item4 : qty-1  <button type="button" class="btn btn-sm btn-danger"id="remove-item">Remove Item</button></li>
     </ul>
   </list>
-</div>
+</div>-->
 <!--  bottom submit button to nav to the review page / order confirmation pop-up....whatever-->
 <div class="container">
   <button type="submit"class="btn btn-lg btn-primary" id="submit-form">Submit My Order</button>
@@ -88,7 +87,7 @@
     var product = jQuery("#produce_select").val();
     var quantity = jQuery("#quantity_select").val();
     jQuery.ajax({
-      url: "order.html",
+      url: "order",
       data: "product=" + product +"&quantity=" + quantity,
       success: function(data){
         jQuery("#table").html(data).load();
