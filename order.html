@@ -55,6 +55,7 @@
 <form class="container form-inline">
    <h3>Current Order</h3>
    <div id="table" class="form-group">
+     stuff
    </div>
 </form>
 
@@ -92,13 +93,14 @@
     });
   });
   function add_to_order(){
-    var product = jQuery("#produce_select").val();
-    var quantity = jQuery("#quantity_select").val();
+    var product = $("#produce_select").val();
+    var quantity = $("#quantity_select").val();
     jQuery.ajax({
       url: "order",
       data: "product=" + product +"&quantity=" + quantity,
       success: function(data){
-        jQuery("#table").append(data).load();
+        var p = $("<p>")
+        $("#table").append($("<p>").html(data));
       }
     });
 
