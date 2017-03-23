@@ -32,7 +32,10 @@
       <!--  selector that chooses produce item-->
       <label class="control-label" for="produce_select">Produce</label>
       <select required class="form-control" id="produce_select">
-        <!--Dynamically filled from produce.txt-->
+        <option disabled selected value="">Select...</option>
+        <option value="1">Tomato (case)</option>
+        <option value="2">Squash (case)</option>
+        <option value="3">Onion (case)</option>
       </select>
       <!--  quantity selector -->
       <label class="control-label" for="quantity_select">Quantity</label>
@@ -83,11 +86,11 @@
 
 <!--  javascript control of the list above -->
 <script>
-  $(function(){
-    $(document).ready(function(){
-      $("#produce_select").load('produce.txt');
-    });
-  });
+  // $(function(){
+  //   $(document).ready(function(){
+  //     $("#produce_select").load('produce.txt');
+  //   });
+  // });
   function add_to_order(){
     var product = jQuery("#produce_select").val();
     var quantity = jQuery("#quantity_select").val();
