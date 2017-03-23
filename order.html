@@ -32,10 +32,6 @@
       <!--  selector that chooses produce item-->
       <label class="control-label" for="produce_select">Produce</label>
       <select required class="form-control" id="produce_select">
-        <option disabled selected value="">Select...</option>
-        <option value="1">Tomato (case)</option>
-        <option value="2">Squash (case)</option>
-        <option value="3">Onion (case)</option>
       </select>
       <!--  quantity selector -->
       <label class="control-label" for="quantity_select">Quantity</label>
@@ -91,6 +87,8 @@
   //     $("#produce_select").load('produce.txt');
   //   });
   // });
+
+   $("#produce_select").load('produce.txt');
   function add_to_order(){
     var product = jQuery("#produce_select").val();
     var quantity = jQuery("#quantity_select").val();
@@ -98,8 +96,7 @@
       url: "order",
       data: "product=" + product +"&quantity=" + quantity,
       success: function(data){
-        // jQuery("#table").html(data).load();
-        $("#table").load('produce.txt');
+        jQuery("#table").html(data).load();
       }
     });
 
