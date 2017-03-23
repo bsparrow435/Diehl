@@ -52,9 +52,9 @@
   </list>
 </div>-->
 
-<form class="container">
+<form class="container form-inline">
    <h3>Current Order</h3>
-   <div id="table">
+   <div id="table" class="form-group">
    </div>
 </form>
 
@@ -98,7 +98,7 @@
       url: "order",
       data: "product=" + product +"&quantity=" + quantity,
       success: function(data){
-        jQuery("#table").html(data).load();
+        jQuery("#table").append(data).load();
       }
     });
 
