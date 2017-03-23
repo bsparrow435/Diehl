@@ -81,8 +81,13 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!--  java script control of the list above -->
+<!--  javascript control of the list above -->
 <script>
+  $(function(){
+    $(document).ready(function(){
+      $("#produce_select").load('produce.txt');
+    });
+  });
   function add_to_order(){
     var product = jQuery("#produce_select").val();
     var quantity = jQuery("#quantity_select").val();
@@ -95,25 +100,6 @@
     });
 
   }
-  
-
-
-// document.getElementById("add-item").addEventListener("click", function(){
-//   var newLi = document.createElement("li");
-//   var order = document.getElementById("current-order").getElementsByClass("ul");
-//   var item = document.getElementById("inlineFormProduct");
-//   var listStringP = item.options[ item.selectedIndex ].text;
-//   var quant = document.getElementById("inlineFormQuantity");
-//   var listStringQ = quant.options[ quant.selectedIndex ].text;
-//   order.appendChild(newLi);
-//   newLi.innerHTML= "listStringP" + "listStringQ";
-// });
 </script>
-<script>
-  $(function(){
-    $(document).ready(function(){
-      $("#produce_select").load('produce.txt');
-    });
-  });
-</script>
+
 </body>
