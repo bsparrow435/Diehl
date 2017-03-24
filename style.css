@@ -4,11 +4,6 @@ body{
   font-family: 'catamaran';
   background-color:rgb(65,65,65);
   background:linear-gradient( rgba(0,0,0,0.9), rgba(65,65,65, 0.5));
-
-   background-repeat:no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
 }
 #sign{
   background-image: url("assets/img/veg_back.jpg");
@@ -31,7 +26,7 @@ html, body{
   padding-top: 70px;
 }
 #pagewrapper, section {
-  /*background-image: url("assets/img/veg_back.jpg");*/
+  background-image: url("assets/img/veg_back.jpg");
   background-repeat:no-repeat;
   background-position: center;
   background-attachment: fixed;
