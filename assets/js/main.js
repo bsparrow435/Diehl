@@ -17,10 +17,8 @@ $(document).ready(function() {
       });
     }  // End if
   });
-});
-
-
-// Validation for res-id and custom error message. Need to work on this more and implement our own submit event
-$("#res-id").on('invalid', function(event) {
-    event.target.setCustomValidity("Please input your 5-digit Restaurant ID")
+  // Validation for res-id and custom error message. Need to work on this more and implement our own submit event
+  $("#res-id-form").on('invalid', function(event) {
+      event.target.setCustomValidity("Please input your 5-digit Restaurant ID")
   });
+});
