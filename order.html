@@ -29,7 +29,7 @@
   <div class="container-fluid">
     <h2>Build Your Order</h2>
   </div>
-  <form class="container form-inline">
+  <form class="order-form container form-inline">
     <div class="form-group">
       <!--  selector that chooses produce item-->
       <label class="control-label" for="produce_select">Produce</label>
@@ -39,7 +39,7 @@
       <label class="control-label" for="quantity_select">Quantity</label>
       <input required type="number" min="0" max="100" step="1" class="form-control" id="quantity_select">
       <!--  green btton that adds item to UL-->
-      <button type="submit" class="btn btn-success" id="add-item" onclick="add_to_order()">Add Item</button>
+      <button type="submit" class="btn btn-success" id="add-item">Add Item</button>
     </div>
   </form>
 <!-- UL that is generated based on user input from above -->
@@ -54,31 +54,33 @@
   </list>
 </div>-->
 
-<form class="container form-inline">
-   <h3>Current Order</h3>
-   <div id="table" class="form-group">
-   </div>
-</form>
-
-<!--  bottom submit button to nav to the review page / order confirmation pop-up....whatever-->
-<div class="container">
-  <button type="submit"class="btn btn-lg btn-primary" id="submit-form">Submit My Order</button>
-  <p>  You will have a chance to review your order before it is final. </p>
+<div class="container hidden" id="order-list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody id="order-table">
+    </tbody>
+  </table>
 </div>
 
-<!-- bottom nav -->
-<nav class="navbar navbar-fixed-bottom lower-nav">
-  <div class="container">
-      <ul class="nav nav-pills text-right lower-right-nav">
-        <li class="hidden-xs"><a target="_blank" href="https://www.facebook.com/DiehlsProduceAnnapolis/"><img class="fb" src="assets/img/fb-icon.jpg"/>Like Us</a></li>
-      </ul>
-      <ul class="nav text-left lower-left-nav">
-        <li class="visible-xs"><a class="like-small" target="_blank" href="https://www.facebook.com/DiehlsProduceAnnapolis/"><img class="fb fb-small" src="assets/img/fb-icon.jpg"/></a></li>
-        <li><a class="copyright">&copy 2017 Diehl's</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
+<!--  bottom submit button to nav to the review page / order confirmation pop-up....whatever-->
+<form class="container form-inline hidden" id="submit-form">
+  <div class="form-group">
+    <label class="control-label" for="date_select">Delivery Date</label>
+    <input required type="date" class="form-control" id="date_select">
+    <button type="submit" class="btn btn-lg btn-primary" id="submit">Submit My Order</button>
+  </div>  
+  <!--<p>  You will have a chance to review your order before it is final. </p>-->
+</form>
+
+<div class="container order-footer">
+  <p>Restaurant ID: 12345</p>
+  <p>Email: bsparrow435@gmail.com</p>
+</div>
 
 <!--Bootstrap javascript imports-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -91,13 +93,20 @@
   $(function(){
     $(document).ready(function(){
       $("#produce_select").load('produce.txt');
+      $(".order-form").on('submit', function(event) {
+        event.preventDefault();
+        if($("#order-list").hasClass("hidden")){
+          $("#order-list").removeClass("hidden");
+          $("#submit-form").removeClass("hidden");
+        }
+        else{
+          //Nothing
+        }
+        var content = $("<td>" + $("#produce_select").val() + "</td>" + "<td>" + $("#quantity_select").val() + "</td>")
+        $("#order-table").append($("<tr>").html(content));
+      });
     });
   });
-  function add_to_order(){
-    var product = $("#produce_select").val();
-    var quantity = $("#quantity_select").val();
-    $("#table").append($("<p>").html(product + quantity));
-  };
 </script>
 
 </body>

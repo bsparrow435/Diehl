@@ -21,6 +21,6 @@ $(document).ready(function() {
 
 
 // Validation for res-id and custom error message. Need to work on this more and implement our own submit event
-document.getElementById('res-id').addEventListener('invalid', function(event) {
+$("#res-id").on('invalid', function(event) {
     event.target.setCustomValidity("Please input your 5-digit Restaurant ID")
-  }, false);
+  });

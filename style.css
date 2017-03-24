@@ -158,6 +158,21 @@ p{
     padding-left: 0px !important;
 }
 
+th{
+  text-align: center;
+  font-size: 2em;
+  color:rgb(218,218,218);
+}
+
+tbody{
+  background-color: #fff;
+  font-size: 1.5em;
+}
+
+.order-footer{
+  text-align: left;
+}
+
 /*responsive CSS custom styling*/
 @media (max-width: 991px){
     h1{
@@ -185,6 +200,12 @@ p{
   }
   #info{
     padding-top: 0;
+  }
+  .order-form{
+    max-width: 450px;
+  }
+  #add-item{
+    margin-top: 5px
   }
 }
 @media (max-width: 710px){
