@@ -26,8 +26,10 @@
     <![endif]-->
   </head>
 <body>
-  <form class="container form-inline">
+  <div class="container-fluid">
     <h2>Build Your Order</h2>
+  </div>
+  <form class="container form-inline">
     <div class="form-group">
       <!--  selector that chooses produce item-->
       <label class="control-label" for="produce_select">Produce</label>
@@ -94,15 +96,7 @@
   function add_to_order(){
     var product = $("#produce_select").val();
     var quantity = $("#quantity_select").val();
-    jQuery.ajax({
-      type: "POST",
-      data: "product=" + product +"&quantity=" + quantity,
-      success: function(data){
-        var p = $("<p>")
-        $("#table").append($("<p>").html(data));
-      }
-    });
-
+    $("#table").append($("<p>").html(product + quantity));
   };
 </script>
 
