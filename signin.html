@@ -38,18 +38,18 @@
     <div class="container">
       <h2>RESTAURANT LOGIN</h2>
     </div>
-    <div class="container login-form">
-      <form>
+    <div class="container login-container">
+      <form action="order" id="res-id-form">
         <div class="form-group has-success has-feedback">
-          <label for="res-id">Sign in using your numeric Restaurant ID:</label>
+          <label for="res-id">Sign in with your Restaurant ID:</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-leaf"></i></span>
-            <input type="number" name="restaurant-id" placeholder="Restaurant ID" class="form-control" id="res-id">
+            <input type="text" pattern="[0-9]{5}" placeholder="Restaurant ID" class="form-control" id="res-id" name="res-id">
           </div>
         </div>
         <button type="submit" class="btn btn-default btn-block">Submit</button>
       </form>
-    </div> <!-- /container -->
+    </div>
 
     <!--footer elements.   can add social media buttons if needed.  -->
     <!-- wrapping div for the bottom nav bar -->
