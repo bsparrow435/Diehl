@@ -19,6 +19,10 @@ $(document).ready(function() {
   });
   // Validation for res-id and custom error message. Need to work on this more and implement our own submit event
   $("#res-id-form").on('invalid', function(event) {
-      event.target.setCustomValidity("Please input your 5-digit Restaurant ID")
+    event.target.setCustomValidity("Please input your 5-digit Restaurant ID")
+  });
+  // Handle footer with phone keyboards
+  $("#res-id").on('focus', function(event) {
+    //Hide the lower-nav class?
   });
 });
