@@ -173,6 +173,10 @@ tbody{
   text-align: left;
 }
 
+#date_select{
+  max-width: 170px;
+}
+
 /*responsive CSS custom styling*/
 @media (max-width: 991px){
     h1{
@@ -204,7 +208,7 @@ tbody{
   .order-form{
     max-width: 450px;
   }
-  #add-item{
+  .order-button{
     margin-top: 5px
   }
 }

@@ -34,12 +34,16 @@
       <!--  selector that chooses produce item-->
       <label class="control-label" for="produce_select">Produce</label>
       <select required class="form-control" id="produce_select">
+        <option disabled selected value="">Select...</option>
+        <option value="Tomato (case)">Tomato (case)</option>
+        <option value="Squash (case)">Squash (case)</option>
+        <option value="Onion (case)">Onion (case)</option>
       </select>
       <!--  quantity selector -->
       <label class="control-label" for="quantity_select">Quantity</label>
       <input required type="number" min="0" max="100" step="1" class="form-control" id="quantity_select">
       <!--  green btton that adds item to UL-->
-      <button type="submit" class="btn btn-success" id="add-item">Add Item</button>
+      <button type="submit" class="btn btn-success order-button" id="add-item">Add Item</button>
     </div>
   </form>
 <!-- UL that is generated based on user input from above -->
@@ -60,9 +64,23 @@
       <tr>
         <th>Product</th>
         <th>Quantity</th>
+        <th></th>
       </tr>
     </thead>
     <tbody id="order-table">
+      <tr>
+        <td>
+          Test
+        </td>
+        <td>
+          Test
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger btn-xs remove-order">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -71,8 +89,8 @@
 <form class="container form-inline hidden" id="submit-form">
   <div class="form-group">
     <label class="control-label" for="date_select">Delivery Date</label>
-    <input required type="date" class="form-control" id="date_select">
-    <button type="submit" class="btn btn-lg btn-primary" id="submit">Submit My Order</button>
+    <input required type="date" class="form-control center-block" id="date_select">
+    <button type="submit" class="btn btn-lg btn-primary order-button" id="submit">Submit My Order</button>
   </div>  
   <!--<p>  You will have a chance to review your order before it is final. </p>-->
 </form>
@@ -92,7 +110,7 @@
 <script>
   $(function(){
     $(document).ready(function(){
-      $("#produce_select").load('produce.txt');
+      // $("#produce_select").load('produce.txt');
       $(".order-form").on('submit', function(event) {
         event.preventDefault();
         if($("#order-list").hasClass("hidden")){
@@ -102,8 +120,13 @@
         else{
           //Nothing
         }
-        var content = $("<td>" + $("#produce_select").val() + "</td>" + "<td>" + $("#quantity_select").val() + "</td>")
+        removeButton = '<button type="button" class="btn btn-danger btn-xs remove-order">';
+        glyphRemove = '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
+        var content = $("<td>" + $("#produce_select").val() + "</td>" + "<td>" + $("#quantity_select").val() + "</td>" + "<td>" + removeButton + glyphRemove +"</td>");
         $("#order-table").append($("<tr>").html(content));
+        $(".remove-order").on('click', function(){
+          $(this).parent().parent().remove();
+        });
       });
     });
   });
