@@ -73,18 +73,16 @@
 </div>
 
 <!--  bottom submit button to nav to the review page / order confirmation pop-up....whatever-->
-<form class="container form-inline hidden" id="submit-form">
+<form action="https://formspree.io/bsparrow435@gmail.com" method="POST" class="container form-inline hidden" id="submit-form">
   <div class="form-group">
     <label class="control-label" for="date_select">Delivery Date</label>
-    <input required type="date" class="form-control center-block" id="date_select">
+    <input required name="Delivery Date" type="date" class="form-control center-block" id="date_select">
     <button type="submit" class="btn btn-lg btn-primary order-button" id="submit">Submit My Order</button>
   </div>  
-  <!--<p>  You will have a chance to review your order before it is final. </p>-->
+  <p>  You will have a chance to review your order before it is final. </p>
 </form>
 
 <div class="container order-footer">
-  <p>Restaurant ID: 12345</p>
-  <p>Email: bsparrow435@gmail.com</p>
 </div>
 
 <!--Bootstrap javascript imports-->
@@ -97,6 +95,14 @@
 <script>
   $(function(){
     $(document).ready(function(){
+      $(".order-footer").append($("<p>").html("Restaurant ID: " + $.urlParam("res-id")));
+      $(".order-footer").append($("<p>").html("Email: bsparrow435@gmail.com"));
+
+      $("#submit-form").on('submit', function(event) {
+
+
+      });
+
       // $("#produce_select").load('produce.txt');
       $(".order-form").on('submit', function(event) {
         event.preventDefault();
@@ -117,6 +123,16 @@
       });
     });
   });
+
+  $.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+};
 </script>
 
 </body>
